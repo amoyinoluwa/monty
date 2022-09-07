@@ -8,20 +8,38 @@
  *
  * Return: void 
  */
-void push(stack_t **top, stack_t **last, int data)
+void push(stack_t **top, unsigned int line_number)
 {
 	stack_t *new;
+	int num, i;
+	char *val;
 
+	val = strtok(NULL, " \r\t\n");
 	new = malloc(sizeof(stack_t));
+
+	for (i = 0; val[i] != '\0'; i++)
+	{
+		if (val[i] = '-' && i == 0)
+			continue;
+		if (isdigit(val[i]))
+			continue;
+		else
+		{
+			fprintf(stderr, "L%d: usage: push integer", line_number);
+		}
+	}
+
 	if (new == NULL)
 		return;
-	new->n = data;
+
+	num = atoi(val)
+	new->n = num;
 	new->next = NULL;
 	new->prev = NULL;
-	if (*last == NULL) /*no node in the list */
+
+	if (*top == NULL) /*no node in the list */
 	{
-		*last = new;
-		*top = *last;
+		*top = new;
 		return;
 	}
 	new->next = *top;
@@ -36,8 +54,10 @@ void push(stack_t **top, stack_t **last, int data)
  *
  * Return: void 
  */
-void pall(stack_t **top)
+
+void pall(stack_t **top, unsigned int line_number)
 {
+	void (line_number);
 	stack_t *ptr;
 
 	ptr = *top;
@@ -49,6 +69,7 @@ void pall(stack_t **top)
 		ptr = ptr->next;
 	}
 }
+
 /**
  * pint - prints the element at the top of the stack
  * @top: top data structure containing all elements

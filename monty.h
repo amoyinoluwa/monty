@@ -16,11 +16,12 @@
  */
 
 /* Standard Library */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
-/******** NODE STRCUT **********/
+/******** NODE STRUCT **********/
 typedef struct stack_s
 {
         int n;
@@ -54,10 +55,7 @@ void add(stack_t **top, unsigned int line);
 void sub(stack_t **top, unsigned int line_number);
 void nop();
 void divi(stack_t **top, unsigned int line_number);
-
-/* please endeavor to use variable top to reference the top pointer, thanks */
-#endif
-int (*get_function(char*))(stack_t, unsigned int);
+void get_function(char *input, stack_t **s, unsigned int line);
 
 #endif
 
