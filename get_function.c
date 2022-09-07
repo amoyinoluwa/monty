@@ -17,7 +17,7 @@ void get_function(char *input, stack_t **s, unsigned int line)
 		{"add", add},
 		{"nop", nop},
 		{"sub", sub},
-		{"div", div},
+		{"div", divi},
 		{"mul", mul},
 		{"mod", mod},
 		{NULL, NULL}
