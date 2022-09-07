@@ -10,7 +10,7 @@
 int main(int argc, char** argv)
 {
 	FILE *fp;
-	char *command, *chars;
+	char *command, *chars = NULL;
 	size_t buf_size;
 	unsigned int line_number = 1;
 	stack_t *buffer;
@@ -31,6 +31,7 @@ int main(int argc, char** argv)
 		get_function(command, &buffer, line_number);
 		line_number++;
 	}
+	free(chars);
 	fclose(fp);
 	return (0);
 }
