@@ -6,7 +6,7 @@
  * Return: pointer to function
  */
 
-void get_function(char *input, stack_t *s, unsigned int line)
+void get_function(char *input, stack_t **s, unsigned int line)
 {
 	instruction_t instruction[] = {
 		{"pop", pop},

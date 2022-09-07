@@ -1,5 +1,12 @@
 #include "monty.h"
 
+/**
+ * main - main function to read bytecode
+ * @argc: number of arguments in command line
+ * @argv: pointer to args
+ * Return: 0
+ */
+
 int main(int argc, char** argv)
 {
 	FILE *fp;
@@ -18,11 +25,12 @@ int main(int argc, char** argv)
 		fprintf(stderr, "Error: Can't open file %s", argv[1]);
 		exit(EXIT_FAILURE);
 	}
-	while (getline(&chars, &buf_size, fp) != EOF)
+	while (getline(&chars, &buf_size, fp) != -1)
 	{
 		command = strtok(chars, " \r\t\n");
-		get_function(buffer, line_number);
+		get_function(&buffer, command, line_number);
 		line_number++;
 	}
+	fclose(fp);
 	return (0);
 }
