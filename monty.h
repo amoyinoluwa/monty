@@ -55,6 +55,7 @@ void sub(stack_t **top, unsigned int line_number);
 void nop();
 void divi(stack_t **top, unsigned int line_number);
 
+/* please endeavor to use variable top to reference the top pointer, thanks */
 #endif
 int (*get_function(char*))(stack_t, unsigned int);
 
