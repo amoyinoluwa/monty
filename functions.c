@@ -38,13 +38,40 @@ void pop(stack_t **stack, unsigned int line_number)
 	
 	node = *stack;
 
-	if (node->prev == NULL)
+	if (node->next == NULL)
 		free(node);
 	else
 	{
-		top = node->prev;
-		top->next = NULL;
+		top = node->next;
+		if (top)
+			top->prev = NULL;
 		*stack = top;
 		free(node);
+	}
+}
+
+/**
+ * swap - swaps two elements at the top of the stack
+ * @stack: doubly linked list stack
+ * @line_number: line number of file being printed
+ * Return: nothing
+ */
+
+void swap(stack_t **stack, unsigned int line_number)
+{
+	stack_t *top;
+	int temp;
+
+	if ((*stack)->next == NULL)
+	{
+		fprintf(stderr, "L%u: can't swap, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	else
+	{
+		top = (*stack)->next;
+		temp = (*stack)->n;
+		(*stack)->n = top->n;
+		top->n = temp;
 	}
 }
