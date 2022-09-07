@@ -1,9 +1,11 @@
 #ifndef MONTY_H
 #define MONTY_H
+#define _GNU_SOURCE
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -14,12 +16,6 @@
  * Description: doubly linked list node structure
  * for stack, queues, LIFO, FIFO
  */
-
-/* Standard Library */
-
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 
 /******** NODE STRUCT **********/
 typedef struct stack_s
@@ -46,7 +42,7 @@ typedef struct instruction_s
 
 
 /* Function prototypes */
-void push(stack_t **top, stack_t **last, int data);
+void push(stack_t **top, unsigned int line_number);
 void pint(stack_t **top, unsigned int line_number);
 void pop(stack_t **top, unsigned int line_number);
 void swap(stack_t **top, unsigned int line_number);
@@ -55,6 +51,7 @@ void add(stack_t **top, unsigned int line);
 void sub(stack_t **top, unsigned int line_number);
 void nop();
 void divi(stack_t **top, unsigned int line_number);
+void pall(stack_t **top, unsigned int line_number);
 void get_function(char *input, stack_t **s, unsigned int line);
 
 #endif

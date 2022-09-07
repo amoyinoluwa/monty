@@ -18,15 +18,13 @@ void get_function(char *input, stack_t **s, unsigned int line)
 		{"nop", nop},
 		{"sub", sub},
 		{"div", divi},
-		{"mul", mul},
-		{"mod", mod},
 		{NULL, NULL}
-	}
+	};
 	int i = 0;
 
 	while (instruction[i].opcode)
 	{
-		if (instruction[i].opcode == input)
+		if (strcmp(instruction[i].opcode, input) == 0)
 		{
 			instruction[i].f(s, line);
 			break;
@@ -35,7 +33,7 @@ void get_function(char *input, stack_t **s, unsigned int line)
 	}
 	if (instruction[i].opcode == NULL)
 	{
-		fprintf(stderr, "L%u: unknown instruction %s", line, input);
+		fprintf(stderr, "L%u: unknown instruction %s\n", line, input);
 		exit(EXIT_FAILURE);
 	}
 }

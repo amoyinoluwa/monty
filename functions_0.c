@@ -19,7 +19,7 @@ void push(stack_t **top, unsigned int line_number)
 
 	for (i = 0; val[i] != '\0'; i++)
 	{
-		if (val[i] = '-' && i == 0)
+		if (val[i] == '-' && i == 0)
 			continue;
 		if (isdigit(val[i]))
 			continue;
@@ -32,7 +32,7 @@ void push(stack_t **top, unsigned int line_number)
 	if (new == NULL)
 		return;
 
-	num = atoi(val)
+	num = atoi(val);
 	new->n = num;
 	new->next = NULL;
 	new->prev = NULL;
@@ -57,8 +57,8 @@ void push(stack_t **top, unsigned int line_number)
 
 void pall(stack_t **top, unsigned int line_number)
 {
-	void (line_number);
-	stack_t *ptr;
+	stack_t *ptr = NULL;
+	(void)(line_number);
 
 	ptr = *top;
 	if (*top == NULL) /* if stack is empty, print nothing */
