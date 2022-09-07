@@ -14,6 +14,13 @@
  * Description: doubly linked list node structure
  * for stack, queues, LIFO, FIFO
  */
+
+/* Standard Library */
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+/******** NODE STRCUT **********/
 typedef struct stack_s
 {
         int n;
@@ -21,6 +28,7 @@ typedef struct stack_s
         struct stack_s *next;
 } stack_t;
 
+/********** INSRUCTION STRUCT ****************/
 /**
  * struct instruction_s - opcode and its function
  * @opcode: the opcode
@@ -35,10 +43,21 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-void pall(stack_t **stack, unsigned int line_number);
-void swap(stack_t **stack, unsigned int line_number);
-void pop(stack_t **stack, unsigned int line_number);
-void pint(stack_t **stack, unsigned int line_number);
+
+/* Function prototypes */
+void push(stack_t **top, stack_t **last, int data);
+void pint(stack_t **top, unsigned int line_number);
+void pop(stack_t **top, unsigned int line_number);
+void swap(stack_t **top, unsigned int line_number);
+size_t stack_len(stack_t **top);
+void add(stack_t **top, unsigned int line);
+void sub(stack_t **top, unsigned int line_number);
+void nop();
+void divi(stack_t **top, unsigned int line_number);
+
+/* please endeavor to use variable top to reference the top pointer, thanks */
+#endif
 int (*get_function(char*))(stack_t, unsigned int);
 
 #endif
+
