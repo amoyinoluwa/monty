@@ -20,6 +20,9 @@ void get_function(char *input, stack_t **s, unsigned int line)
 		{"nop", nop},
 		{"sub", sub},
 		{"div", divi},
+		{"mul", mul},
+	 	{"mod", mod},
+	 	{"pchar", pchar},
 		{NULL, NULL}};
 	int i = 0;
 

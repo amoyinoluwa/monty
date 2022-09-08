@@ -6,6 +6,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
+#include <unistd.h>
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -53,6 +54,10 @@ void nop(stack_t **top, unsigned int line_number);
 void divi(stack_t **top, unsigned int line_number);
 void pall(stack_t **top, unsigned int line_number);
 void get_function(char *input, stack_t **s, unsigned int line);
+void mul(stack_t **top, unsigned int line_number);
+void mod(stack_t **top, unsigned int line_number);
+void pchar(stack_t **top, unsigned int line_number);
+int _putchar(char c);
 
 #endif
 
