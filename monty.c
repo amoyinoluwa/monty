@@ -12,7 +12,7 @@ int main(int argc, char** argv)
 	FILE *fp;
 	char *command, *chars = NULL;
 	size_t buf_size;
-	unsigned int line_number = 1;
+	unsigned int line_number = 0;
 	stack_t *buffer;
 
 	if (argc != 2)
@@ -29,8 +29,8 @@ int main(int argc, char** argv)
 	while (getline(&chars, &buf_size, fp) != EOF)
 	{
 		command = strtok(chars, " \r\t\n");
-		get_function(command, &buffer, line_number);
 		line_number++;
+		get_function(command, &buffer, line_number);
 	}
 	free(chars);
 	fclose(fp);

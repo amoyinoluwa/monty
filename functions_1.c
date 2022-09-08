@@ -25,16 +25,17 @@ void add(stack_t **top, unsigned int line_number)
 
 /**
  * nop - does nothing
- *
+ * @top: pointer to the top element in the stack.
  * Return: void
  */
-void nop()
+void nop(stack_t **top, unsigned int line_number)
 {
-	return;
+	(void)(*top);
+	(void)(line_number);
 }
 
 /**
- * sub - subtracts the top element of the stack 
+ * sub - subtracts the top element of the stack
  * from the second top element of the stack.
  * @top: pointer to the first element of the stack
  * @line_number: line number of input file
@@ -58,7 +59,7 @@ void sub(stack_t **top, unsigned int line_number)
 }
 
 /**
- * div: divides the second top element of the stack
+ * divi - divides the second top element of the stack
  * by the top element of the stack.
  * @top: pointer to the first element of the stack
  * @line_number: line number of the input file
@@ -99,7 +100,7 @@ size_t stack_len(stack_t **top)
 	stack_t *ptr;
 
 	ptr = *top;
-	while(ptr)
+	while (ptr)
 	{
 		count++;
 		ptr = ptr->next;

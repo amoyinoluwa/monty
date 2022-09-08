@@ -20,9 +20,9 @@
 /******** NODE STRUCT **********/
 typedef struct stack_s
 {
-        int n;
-        struct stack_s *prev;
-        struct stack_s *next;
+	int n;
+	struct stack_s *prev;
+	struct stack_s *next;
 } stack_t;
 
 /********** INSRUCTION STRUCT ****************/
@@ -36,8 +36,8 @@ typedef struct stack_s
  */
 typedef struct instruction_s
 {
-        char *opcode;
-        void (*f)(stack_t **stack, unsigned int line_number);
+	char *opcode;
+	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
 
@@ -49,7 +49,7 @@ void swap(stack_t **top, unsigned int line_number);
 size_t stack_len(stack_t **top);
 void add(stack_t **top, unsigned int line);
 void sub(stack_t **top, unsigned int line_number);
-void nop();
+void nop(stack_t **top, unsigned int line_number);
 void divi(stack_t **top, unsigned int line_number);
 void pall(stack_t **top, unsigned int line_number);
 void get_function(char *input, stack_t **s, unsigned int line);
