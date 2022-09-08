@@ -2,11 +2,11 @@
 
 /**
  * push - adds a new node at the top of the top
- * @last: pointer to the last node of the linked list
- * @data: data to be stored
+ * @top: pointer to the top node of the stack
+ *
  * @line_number: line number of input file
  *
- * Return: void 
+ * Return: void
  */
 void push(stack_t **top, unsigned int line_number)
 {
@@ -25,7 +25,11 @@ void push(stack_t **top, unsigned int line_number)
 			continue;
 		else
 		{
+<<<<<<< HEAD
 			fprintf(stderr, "L%d: usage: push integer\n", line_number);
+=======
+			fprintf(stderr, "L%u: usage: push integer\n", line_number);
+>>>>>>> f51755b63893c3a9de00de991c7d1147cd8e4130
 			exit(EXIT_FAILURE);
 		}
 	}
@@ -51,9 +55,9 @@ void push(stack_t **top, unsigned int line_number)
 /**
  * pall - prints all the data values in each node of the stack.
  * @top: pointer to the top of the stack
- * @last: pointer to the last node in the stack.
  *
- * Return: void 
+ * @line_number: line number of the input file
+ * Return: void
  */
 
 void pall(stack_t **top, unsigned int line_number)
@@ -82,7 +86,7 @@ void pint(stack_t **top, unsigned int line_number)
 {
 	if (*top == NULL)
 	{
-		fprintf(stderr, "L%u: can't pint, top empty\n", line_number);
+		fprintf(stderr, "L%u: can't pint, stack empty\n", --line_number);
 		exit(EXIT_FAILURE);
 	}
 	printf("%d\n", (*top)->n);
@@ -102,7 +106,7 @@ void pop(stack_t **top, unsigned int line_number)
 	ptr = *top;
 	if (*top == NULL) /* empty stack */
 	{
-		fprintf(stderr, "L%u: can't pop an empty top\n", line_number);
+		fprintf(stderr, "L%u: can't pop an empty stack\n", --line_number);
 		exit(EXIT_FAILURE);
 	}
 	if (ptr->next == NULL) /* only element in the stack */
@@ -131,7 +135,7 @@ void swap(stack_t **top, unsigned int line_number)
 
 	if (stack_len(top) < 2)
 	{
-		fprintf(stderr, "L%u: can't swap, top too short\n", line_number);
+		fprintf(stderr, "L%u: can't swap, stack too short\n", --line_number);
 		exit(EXIT_FAILURE);
 	}
 	ptr = (*top)->next;

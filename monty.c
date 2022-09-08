@@ -7,12 +7,12 @@
  * Return: 0
  */
 
-int main(int argc, char** argv)
+int main(int argc, char **argv)
 {
 	FILE *fp;
 	char *command, *chars = NULL;
 	size_t buf_size;
-	unsigned int line_number = 1;
+	unsigned int line_number = 0;
 	stack_t *buffer;
 
 	if (argc != 2)

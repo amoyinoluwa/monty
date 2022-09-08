@@ -2,6 +2,8 @@
 
 /**
  * get_function - function handler
+ * @s: pointer to the top stack.
+ * @line: line number of current instruction of input file
  * @input: input string
  * Return: pointer to function
  */
@@ -18,8 +20,10 @@ void get_function(char *input, stack_t **s, unsigned int line)
 		{"nop", nop},
 		{"sub", sub},
 		{"div", divi},
-		{NULL, NULL}
-	};
+		{"mul", mul},
+	 	{"mod", mod},
+	 	{"pchar", pchar},
+		{NULL, NULL}};
 	int i = 0;
 
 	while (instruction[i].opcode)
