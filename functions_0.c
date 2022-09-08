@@ -25,11 +25,7 @@ void push(stack_t **top, unsigned int line_number)
 			continue;
 		else
 		{
-<<<<<<< HEAD
 			fprintf(stderr, "L%d: usage: push integer\n", line_number);
-=======
-			fprintf(stderr, "L%u: usage: push integer\n", line_number);
->>>>>>> f51755b63893c3a9de00de991c7d1147cd8e4130
 			exit(EXIT_FAILURE);
 		}
 	}
