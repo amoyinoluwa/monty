@@ -32,8 +32,8 @@ int main(int argc, char** argv)
 		if (command[0] != '#')
 		{
 			get_function(command, &buffer, line_number);
-			line_number++;
 		}
+		line_number++;
 	}
 	free(chars);
 	fclose(fp);
