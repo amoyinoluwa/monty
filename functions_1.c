@@ -25,6 +25,7 @@ void add(stack_t **top, unsigned int line_number)
 
 /**
  * nop - does nothing
+ * @line_number: line number of input file
  * @top: pointer to the top element in the stack.
  * Return: void
  */
