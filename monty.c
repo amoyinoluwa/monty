@@ -29,6 +29,9 @@ int main(int argc, char **argv)
 	while (getline(&chars, &buf_size, fp) != EOF)
 	{
 		command = strtok(chars, " \r\t\n");
+		
+		if (command[0] == '\0')
+			continue;
 		if (command[0] != '#')
 		{
 			get_function(command, &buffer, line_number);

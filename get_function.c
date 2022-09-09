@@ -23,6 +23,7 @@ void get_function(char *input, stack_t **s, unsigned int line)
 		{"mul", mul},
 	 	{"mod", mod},
 	 	{"pchar", pchar},
+	 	{"pstr", pstr},
 		{NULL, NULL}};
 	int i = 0;
 

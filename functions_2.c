@@ -79,6 +79,35 @@ void pchar(stack_t **top, unsigned int line_number)
 }
 
 /**
+ * pstr: prints the string starting at the top of the stack.
+ * @top: pointer to the top of the stack.
+ * @line_number: line number of the input file
+ * 
+ * Return: void
+ */
+void pstr(stack_t **top, unsigned int line_number)
+{
+	stack_t *ptr;
+	int ascii;
+
+	(void)line_number;
+	ptr = *top;
+	if (ptr == NULL)
+		_putchar('\n');
+	while (ptr)
+	{
+		ascii = ptr->n;
+		if (ascii == 0 || (ascii < 0 && ascii > 255))
+		{
+			_putchar('\n');
+			return;
+		}
+		_putchar(ascii);
+		ptr = ptr->next;
+	}
+}
+
+/**
  * _putchar - prints a character to stdout
  * @c: character to print
  *

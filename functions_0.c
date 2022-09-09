@@ -23,6 +23,8 @@ void push(stack_t **top, unsigned int line_number)
 			continue;
 		if (isdigit(val[i]))
 			continue;
+		if (val[i] == '\0')
+			continue;
 		else
 		{
 			fprintf(stderr, "L%u: usage: push integer\n", line_number);
