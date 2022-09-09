@@ -15,6 +15,7 @@ void add(stack_t **top, unsigned int line_number)
 	if (stack_len(top) < 2)
 	{
 		fprintf(stderr, "L%u: can't add, stack too short\n", line_number);
+		free_mem();
 		exit(EXIT_FAILURE);
 	}
 	ptr = (*top)->next;
@@ -51,6 +52,7 @@ void sub(stack_t **top, unsigned int line_number)
 	if (stack_len(top) < 2)
 	{
 		fprintf(stderr, "L%u: can't sub, stack too short\n", line_number);
+		free_mem();
 		exit(EXIT_FAILURE);
 	}
 	ptr = (*top)->next;
@@ -75,12 +77,14 @@ void divi(stack_t **top, unsigned int line_number)
 	if (stack_len(top) < 2)
 	{
 		fprintf(stderr, "L%u: can't div, stack too short\n", line_number);
+		free_mem();
 		exit(EXIT_FAILURE);
 	}
 	ptr = (*top)->next;
 	if ((*top)->n == 0)
 	{
 		fprintf(stderr, "L%u: division by zero\n", line_number);
+		free_mem();
 		exit(EXIT_FAILURE);
 	}
 	ptr = (*top)->next;
