@@ -39,7 +39,7 @@ void mod(stack_t **top, unsigned int line_number)
 
 	if (stack_len(top) < 2)
 	{
-		fprintf(stderr, "L%u: can't mul, stack too short\n", line_number);
+		fprintf(stderr, "L%u: can't mod, stack too short\n", line_number);
 		free_mem();
 		exit(EXIT_FAILURE);
 	}
@@ -62,6 +62,7 @@ void mod(stack_t **top, unsigned int line_number)
  *
  * Return: void
  */
+
 void pchar(stack_t **top, unsigned int line_number)
 {
 	 int ascii;
@@ -73,7 +74,7 @@ void pchar(stack_t **top, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	ascii = (*top)->n;
-	if (ascii < 0 && ascii > 257)
+	if (ascii < 0 && ascii > 255)
 	{
 		fprintf(stderr, "L%u: can't pchar, value out of range\n", line_number);
 		free_mem();
