@@ -1,5 +1,4 @@
-push 1
-pint me i am a person
+pchar
 #test comment
 push 300
 pchar
