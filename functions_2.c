@@ -15,6 +15,7 @@ void mul(stack_t **top, unsigned int line_number)
 	if (stack_len(top) < 2)
 	{
 		fprintf(stderr, "L%u: can't mul, stack too short\n", line_number);
+		free_mem();
 		exit(EXIT_FAILURE);
 	}
 	ptr = (*top)->next;
@@ -38,13 +39,15 @@ void mod(stack_t **top, unsigned int line_number)
 
 	if (stack_len(top) < 2)
 	{
-		fprintf(stderr, "L%u: can't mul, stack too short\n", line_number);
+		fprintf(stderr, "L%u: can't mod, stack too short\n", line_number);
+		free_mem();
 		exit(EXIT_FAILURE);
 	}
 	ptr = (*top)->next;
 	if ((*top)->n == 0)
 	{
 		fprintf(stderr, "L%u: division by zero\n", line_number);
+		free_mem();
 		exit(EXIT_FAILURE);
 	}
 	mod = (ptr->n) % ((*top)->n);
@@ -59,19 +62,22 @@ void mod(stack_t **top, unsigned int line_number)
  *
  * Return: void
  */
+
 void pchar(stack_t **top, unsigned int line_number)
 {
 	 int ascii;
 
 	 if (*top == NULL)
 	{
-		fprintf(stderr, "L%u: can't pchar, stack empty\n", --line_number);
+		fprintf(stderr, "L%u: can't pchar, stack empty\n", line_number);
+		free_mem();
 		exit(EXIT_FAILURE);
 	}
 	ascii = (*top)->n;
-	if (ascii < 0 && ascii > 257)
+	if (ascii < 0 || ascii > 127)
 	{
-		fprintf(stderr, "L%u: can't pchar, value out of range\n", --line_number);
+		fprintf(stderr, "L%u: can't pchar, value out of range\n", line_number);
+		free_mem();
 		exit(EXIT_FAILURE);
 	}
 	_putchar(ascii);

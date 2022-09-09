@@ -1,7 +1,6 @@
 #ifndef MONTY_H
 #define MONTY_H
 #define _GNU_SOURCE
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -41,6 +40,22 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+/********* FILE STRUCT **********/
+
+/**
+ * struct input - struct for input file
+ * @fp: file stream
+ * @chars: line being read from file
+ */
+
+typedef struct input
+{
+	FILE *fp;
+	char *chars;
+	stack_t *buffer;
+} fileStream;
+
+extern fileStream file;
 
 /* Function prototypes */
 void push(stack_t **top, unsigned int line_number);
@@ -60,6 +75,8 @@ void pchar(stack_t **top, unsigned int line_number);
 int _putchar(char c);
 void pstr(stack_t **top, unsigned int line_number);
 void rotl(stack_t **top, unsigned int line_number);
+void free_mem(void);
+int isNumber(char* token);
 
 
 #endif
