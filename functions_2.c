@@ -74,7 +74,7 @@ void pchar(stack_t **top, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	ascii = (*top)->n;
-	if (ascii < 0 || ascii > 255)
+	if (ascii < 0 || ascii > 127)
 	{
 		fprintf(stderr, "L%u: can't pchar, value out of range\n", line_number);
 		free_mem();
