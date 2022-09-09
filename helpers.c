@@ -35,14 +35,10 @@ int isNumber(char* token)
 
 	for (i = 0; token[i] != '\0'; i++)
 	{
-                if (token[i] == '-' && i == 0)
-			continue;
-		if (isdigit(token[i]))
-			continue;
-		else
-		{
+		if (token[i] == '-' && i == 0)
+			i++;
+                if (token[i] < 48 || token[i] > 57)
 			return (0);
-		}
 	}
 	return (1);
 }

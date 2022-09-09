@@ -11,7 +11,6 @@
 void push(stack_t **top, unsigned int line_number)
 {
 	stack_t *new;
-	int num;
 	char *val;
 
 	val = strtok(NULL, " \r\t\n");
@@ -28,8 +27,8 @@ void push(stack_t **top, unsigned int line_number)
 		free_mem();
 		exit(EXIT_FAILURE);
 	}
-	num = atoi(val);
-	new->n = num;
+
+	new->n = atoi(val);
 	new->next = NULL;
 	new->prev = NULL;
 
