@@ -11,28 +11,23 @@
 void push(stack_t **top, unsigned int line_number)
 {
 	stack_t *new;
-	int num, i;
+	int num;
 	char *val;
 
 	val = strtok(NULL, " \r\t\n");
-
-	for (i = 0; val[i] != '\0'; i++)
+	if (isNumber(val) == 0)
 	{
-		if (val[i] == '-' && i == 0)
-			continue;
-		if (isdigit(val[i]))
-			continue;
-		else
-		{
-			fprintf(stderr, "L%u: usage: push integer\n", line_number);
-			free_mem();
-			exit(EXIT_FAILURE);
-		}
+		fprintf(stderr, "L%u: usage: push integer\n", line_number);
+		free_mem();
+		exit(EXIT_FAILURE);
 	}
 	new = malloc(sizeof(stack_t));
 	if (new == NULL)
-		return;
-
+	{
+		fprintf(stderr, "Error: malloc failed");
+		free_mem();
+		exit(EXIT_FAILURE);
+	}
 	num = atoi(val);
 	new->n = num;
 	new->next = NULL;
@@ -41,11 +36,13 @@ void push(stack_t **top, unsigned int line_number)
 	if (*top == NULL) /*no node in the list */
 	{
 		*top = new;
-		return;
 	}
-	new->next = *top;
-	(*top)->prev = new;
-	*top = new;
+	else
+	{
+		new->next = *top;
+		(*top)->prev = new;
+		*top = new;
+	}
 }
 
 /**
@@ -62,8 +59,6 @@ void pall(stack_t **top, unsigned int line_number)
 	(void)(line_number);
 
 	ptr = *top;
-	if (*top == NULL) /* if stack is empty, print nothing */
-		return;
 	while (ptr)
 	{
 		printf("%d\n", ptr->n);

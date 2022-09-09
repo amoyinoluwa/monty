@@ -74,6 +74,7 @@ void mod(stack_t **top, unsigned int line_number);
 void pchar(stack_t **top, unsigned int line_number);
 int _putchar(char c);
 void free_mem(void);
+int isNumber(char* token);
 
 #endif
 

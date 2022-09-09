@@ -22,3 +22,27 @@ void free_mem(void)
 	free(file.chars);
 	fclose(file.fp);
 }
+
+/**
+ * isNumber - checks if string token is an integer
+ * @token: string input
+ * Return: 1 or 0
+ */
+
+int isNumber(char* token)
+{
+	int i;
+
+	for (i = 0; token[i] != '\0'; i++)
+	{
+                if (token[i] == '-' && i == 0)
+			continue;
+		if (isdigit(token[i]))
+			continue;
+		else
+		{
+			return (0);
+		}
+	}
+	return (1);
+}
