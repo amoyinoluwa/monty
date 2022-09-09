@@ -56,6 +56,7 @@ void push(stack_t **top, unsigned int line_number)
 void pall(stack_t **top, unsigned int line_number)
 {
 	stack_t *ptr = NULL;
+
 	(void)(line_number);
 
 	ptr = *top;
