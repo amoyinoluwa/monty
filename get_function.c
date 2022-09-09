@@ -24,6 +24,7 @@ void get_function(char *input, stack_t **s, unsigned int line)
 	 	{"mod", mod},
 	 	{"pchar", pchar},
 	 	{"pstr", pstr},
+	 	{"rotl", rotl},
 		{NULL, NULL}};
 	int i = 0;
 
