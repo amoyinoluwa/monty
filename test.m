@@ -1,4 +1,4 @@
-push hey
+push
 pint
 push 2
 pint

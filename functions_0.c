@@ -15,7 +15,7 @@ void push(stack_t **top, unsigned int line_number)
 	char *val;
 
 	val = strtok(NULL, " \r\t\n");
-	if (isNumber(val) == 0)
+	if (val == NULL || isNumber(val) == 0)
 	{
 		fprintf(stderr, "L%u: usage: push integer\n", line_number);
 		free_mem();
