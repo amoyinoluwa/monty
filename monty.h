@@ -72,7 +72,7 @@ void get_function(char *input, stack_t **s, unsigned int line);
 void mul(stack_t **top, unsigned int line_number);
 void mod(stack_t **top, unsigned int line_number);
 void pchar(stack_t **top, unsigned int line_number);
-int _putchar(char c);
+int _putchar(int c);
 void free_mem(void);
 int isNumber(char* token);
 
