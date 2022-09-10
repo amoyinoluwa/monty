@@ -119,7 +119,7 @@ void pstr(stack_t **top, unsigned int line_number)
  *
  * Return: int
  */
-int _putchar(char c)
+int _putchar(int c)
 {
 	return (write(1, &c, 1));
 }
